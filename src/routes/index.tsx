@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Hero } from "@/views/Hero";
-import { Story } from "@/views/Story";
-import { Gallery } from "@/views/Gallery";
-import { Venues } from "@/views/Venues";
-import { Countdown } from "@/views/Countdown";
-import { RSVP } from "@/views/RSVP";
-import { Message } from "@/views/Message";
-import { Footer } from "@/views/Footer";
+import { Hero } from "@/features/hero/Hero";
+import { Story } from "@/features/story/Story";
+import { Gallery } from "@/features/gallery/Gallery";
+import { Venues } from "@/features/venues/Venues";
+import { Countdown } from "@/features/countdown/Countdown";
+import { RSVP } from "@/features/rsvp/RSVP";
+import { Message } from "@/features/message/Message";
+import { Footer } from "@/features/footer/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,

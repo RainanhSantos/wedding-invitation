@@ -2,6 +2,14 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Burgues Script";
+  src: url("@/assets/fonts/burgues-script.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -36,6 +44,7 @@
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-script: "Great Vibes", cursive;
+  --font-burgues: "Burgues Script", cursive;
 }
 
 :root {
@@ -89,6 +98,7 @@
 @layer utilities {
   .font-serif { font-family: var(--font-serif); }
   .font-script { font-family: var(--font-script); }
+  .font-burgues { font-family: var(--font-burgues); }
   .bg-gradient-hero { background: var(--gradient-hero); }
   .bg-gradient-soft { background: var(--gradient-soft); }
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
