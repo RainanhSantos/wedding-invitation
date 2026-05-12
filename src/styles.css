@@ -1,0 +1,111 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-blue-deep: var(--blue-deep);
+  --color-blue-mid: var(--blue-mid);
+  --color-blue-soft: var(--blue-soft);
+  --color-blue-mist: var(--blue-mist);
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Wedding palette: #89acd4 #91b6d3 #adcceb #def0fa */
+  --blue-deep: oklch(0.71 0.06 250);   /* #89acd4 */
+  --blue-mid: oklch(0.74 0.05 248);    /* #91b6d3 */
+  --blue-soft: oklch(0.83 0.04 245);   /* #adcceb */
+  --blue-mist: oklch(0.95 0.02 230);   /* #def0fa */
+  --ink: oklch(0.32 0.04 255);         /* deep blue/graphite */
+
+  --background: oklch(0.99 0.005 230);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--blue-deep);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--blue-mist);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.97 0.01 230);
+  --muted-foreground: oklch(0.5 0.03 255);
+  --accent: var(--blue-soft);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0.02 235);
+  --input: oklch(0.92 0.02 235);
+  --ring: var(--blue-deep);
+
+  --gradient-hero: linear-gradient(135deg, var(--blue-mist) 0%, var(--blue-soft) 50%, var(--blue-mid) 100%);
+  --gradient-soft: linear-gradient(180deg, oklch(1 0 0) 0%, var(--blue-mist) 100%);
+  --shadow-elegant: 0 20px 60px -20px color-mix(in oklab, var(--blue-deep) 35%, transparent);
+  --shadow-soft: 0 8px 30px -10px color-mix(in oklab, var(--blue-deep) 18%, transparent);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--font-serif); }
+  .font-script { font-family: var(--font-script); }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-soft { background: var(--gradient-soft); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .text-ink { color: var(--ink); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+  50% { transform: translateY(-30px) translateX(10px); opacity: 1; }
+}
+.animate-float { animation: float 8s ease-in-out infinite; }
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.1); }
+}
+.animate-heartbeat { animation: heartbeat 2.4s ease-in-out infinite; }
